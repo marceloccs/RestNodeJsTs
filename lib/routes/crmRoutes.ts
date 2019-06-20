@@ -20,23 +20,8 @@ export class Routes {
         // Contact detail
         app.route('/contact/:contactId')
         // get specific contact
-        .get((req: Request, res: Response) => {
-        // Get a single contact detail            
-            res.status(200).send({
-                message: 'GET request successfulll!!!!'
-            })
-        })
-        .put((req: Request, res: Response) => {
-        // Update a contact           
-            res.status(200).send({
-                message: 'PUT request successfulll!!!!'
-            })
-        })
-        .delete((req: Request, res: Response) => {       
-        // Delete a contact     
-            res.status(200).send({
-                message: 'DELETE request successfulll!!!!'
-            })
-        })
+        .get(this.contactController.getContactWithID)
+        .put(this.contactController.updateContact)
+        .delete(this.contactController.deleteContact)
     }
 }
